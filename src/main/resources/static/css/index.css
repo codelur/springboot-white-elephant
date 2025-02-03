@@ -1,0 +1,130 @@
+header {
+  display: block;
+  padding: 12px;
+  height: 15vh;
+  background-image: url(../images/christmas.png);
+  background-size: cover; /* Scales image to cover the div */
+  background-position: bottom;
+  border-bottom: 20px solid #d62828;
+}
+
+.christmas-button {
+  background: linear-gradient(45deg, #d62828, #f77f00);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 30px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.header__nav {
+  width: 100%;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+christmas-button:hover {
+  background: linear-gradient(45deg, #f77f00, #d62828);
+  transform: scale(1.1);
+}
+
+/* Snowflake effect */
+.christmas-button::before {
+  content: "❄️";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.christmas-button::after {
+  content: "🎄";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+main {
+  display: flex;
+  align-items: center;
+  min-height: 70vh;
+  background-image: url(../images/snowflakes.gif);
+  background-size: contain;
+  background-position: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 20px;
+  min-width: 100vw;
+  height: 100%;
+}
+
+.container__title {
+  background-image: linear-gradient(to right, red, #289049);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.container__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70vw;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  border: 5px solid green;
+}
+
+.container__form-submit {
+  display: flex;
+  justify-content: center;
+}
+
+.container__form-submit-txt {
+  margin: 0;
+  padding: 0 10px;
+}
+
+.main__result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 60vw;
+  padding: 20px;
+  background-color: white;
+}
+
+.main__result-list {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+.main__result-list-item {
+  width: 70%;
+}
+
+.clicked {
+  background: linear-gradient(45deg, green, #f77f00);
+}
+
+footer {
+  border-top: 20px solid green;
+  height: 15vh;
+  background-image: url(../images/christmas.png);
+  background-size: cover; /* Scales image to cover the div */
+  background-position: bottom;
+}

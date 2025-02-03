@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Spring Boot App</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/index.css" th:href="@{/css/index.css}" />
+  </head>
+  <body>
+    <header>
+      <div class="header__nav">
+        <button class="christmas-button">
+          <p class="container__form-submit-txt">Select Game</p>
+        </button>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div th:if="${ #lists.isEmpty(numbers)}" class="container__content">
+          <h1 class="text-center mt-5 container__title">
+            Welcome to White Elephant
+          </h1>
+
+          <!-- A simple form -->
+          <form action="/randomNumbers" method="GET">
+            <div class="form-group header">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="numberCount">Enter Number of Players:</label>
+              <input
+                class="form-control"
+                type="number"
+                id="numberCount"
+                name="n"
+                min="1"
+                required
+              />
+            </div>
+            <div class="container__form-submit">
+              <button
+                type="submit"
+                class="container__form-submit-button christmas-button"
+              >
+                <p class="container__form-submit-txt">Create List</p>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="main__result" th:if="${not #lists.isEmpty(numbers)}">
+          <div th:each="number : ${numbers}" class="main__result-list">
+            <button
+              class="main__result-list-item christmas-button"
+              th:onclick="'javascript:this.classList.toggle(\'clicked\');'"
+              th:text="${number}"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>Have a beautiful Christmas and happy holidays!</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
