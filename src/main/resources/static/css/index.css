@@ -25,9 +25,9 @@ header {
 
 .header__nav {
   width: 100%;
-  height: inherit;
+  height: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: right;
 }
 
@@ -127,4 +127,41 @@ footer {
   background-image: url(../images/christmas.png);
   background-size: cover; /* Scales image to cover the div */
   background-position: bottom;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  align-self: flex-start;
+  right: 25px;
+}
+
+/* Dropdown menu (hidden by default) */
+.dropdown-content {
+  display:none;
+  right: 0;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+/* Dropdown items */
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+/* Hover effect */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown when button is clicked */
+.dropdown.show .dropdown-content {
+  display: block;
 }

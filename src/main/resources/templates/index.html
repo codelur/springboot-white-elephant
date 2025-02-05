@@ -8,19 +8,32 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="css/index.css" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}" />
   </head>
   <body>
+    <script th:src="@{/js/index.js}"></script>
+    <form id="gameForm" th:action="@{/select-game}" method="get">
+      <input type="hidden" name="selectedGame" id="selectedGame">
+  </form>
     <header>
       <div class="header__nav">
-        <button class="christmas-button">
+        <button class="christmas-button" onclick="selectGames()">
           <p class="container__form-submit-txt">Select Game</p>
         </button>
+        
       </div>
+      <div class="dropdown">
+        <div class="dropdown-content" id="dropdownMenu">
+          <!-- Options will be added dynamically -->
+      </div>
+    </div>
     </header>
     <main>
+      
+        
       <div class="container">
-        <div th:if="${ #lists.isEmpty(numbers)}" class="container__content">
+        
+        <div th:if="${ #lists.isEmpty(gameList)}" class="container__content">
           <h1 class="text-center mt-5 container__title">
             Welcome to White Elephant
           </h1>
@@ -33,7 +46,7 @@
                 type="text"
                 class="form-control"
                 id="name"
-                name="name"
+                name="gameName"
                 required
               />
             </div>
@@ -59,8 +72,8 @@
             </div>
           </form>
         </div>
-        <div class="main__result" th:if="${not #lists.isEmpty(numbers)}">
-          <div th:each="number : ${numbers}" class="main__result-list">
+        <div class="main__result" th:if="${not #lists.isEmpty(gameList)}">
+          <div th:each="number : ${gameList}" class="main__result-list">
             <button
               class="main__result-list-item christmas-button"
               th:onclick="'javascript:this.classList.toggle(\'clicked\');'"
