@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.games.whiteelephant.model.Game;
 import com.games.whiteelephant.service.WhiteElephantService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class HomeController {
@@ -46,4 +49,12 @@ public class HomeController {
         model.addAttribute("gameList", game.getList());
         return "index";
     }
+
+    @PostMapping("save-game")
+    public Game saveWhiteElephantGame(@RequestBody Game game) {
+        //TODO: process POST request
+        
+        return game;
+    }
+    
 }
