@@ -1,5 +1,6 @@
 package com.games.whiteelephant;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -73,6 +74,6 @@ public class Practice{
     }
 
     public void maps(){
-
+        LocalDate d = LocalDate.now();
     }
 }
