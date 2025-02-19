@@ -16,7 +16,7 @@ public class FirebaseConfig {
         try {
             // Load the Firebase service account key JSON file
             FileInputStream serviceAccount =
-                    new FileInputStream("src/main/resources/games-b2edf-firebase-adminsdk-fbsvc-178416180d.json");
+                    new FileInputStream("src/main/resources/");
 
             // Initialize Firebase with credentials and options
             FirebaseOptions options = FirebaseOptions.builder()
