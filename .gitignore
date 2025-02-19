@@ -17,9 +17,11 @@ node_modules
 .settings
 .springBeans
 .sts4-cache
-
 !**src/main/resources/templates
 node_modules
+
+src/main/resources/games-b2edf-firebase-adminsdk-fbsvc-178416180d.json
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
