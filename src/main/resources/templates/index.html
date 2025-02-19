@@ -38,6 +38,47 @@
             Welcome to White Elephant
           </h1>
 
+          <form action="/firestore/add" method="POST">
+            <input
+                class="form-control"
+                type="text"
+                id="name"
+                name="name"
+                required
+              />
+              <input
+                class="form-control"
+                type="text"
+                id="email"
+                name="email"
+                min="1"
+                required
+              />
+              <button
+                type="submit"
+                class="container__form-submit-button christmas-button"
+              ><p class="container__form-submit-txt">Create User</p>
+            </button>
+          </form>
+          <form action="/firestore/addgame" method="POST">
+            <!-- Game Name -->
+            <label for="name">Game Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+        
+            <!-- Number of Players -->
+            <label for="players">Number of Players:</label>
+            <input type="number" id="players" name="players" required>
+            <br>
+        
+            <!-- Game Attributes (Multiple Inputs) -->
+            <label for="list">Attributes (comma-separated values):</label>
+            <input type="text" id="list" name="list" required>
+            <br>
+        
+            <button type="submit">Create Game</button>
+            <button type="submit">Create Game2</button>
+        </form>
           <!-- A simple form -->
           <form action="/randomNumbers" method="GET">
             <div class="form-group header">
