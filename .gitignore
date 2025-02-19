@@ -1,8 +1,11 @@
 HELP.md
 target/
+src/main/resources/games-b2edf-firebase-adminsdk-fbsvc-178416180d.json
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+!**src/main/resources/games-b2edf-firebase-adminsdk-fbsvc-178416180d.json
+
 Dockerfile
 
 node_modules
@@ -15,6 +18,7 @@ node_modules
 .springBeans
 .sts4-cache
 
+!**src/main/resources/templates
 node_modules
 ### IntelliJ IDEA ###
 .idea
