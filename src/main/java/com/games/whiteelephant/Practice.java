@@ -2,8 +2,10 @@ package com.games.whiteelephant;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,6 +15,9 @@ import java.util.Stack;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
+import com.google.firebase.database.core.utilities.Tree;
+import com.google.firebase.database.core.utilities.TreeNode;
 
 import io.grpc.netty.shaded.io.netty.handler.codec.DateFormatter;
 
@@ -52,16 +57,16 @@ public class Practice{
                                           .collect(Collectors.toList());
         
                 String[] stringsArray = list.stream().toArray(String[]::new);
-        
+                String k = "Dsadsa";
                 List<Integer> intList = new ArrayList<>(List.of(3,4,5,6));
                 Integer[] integersArray = list.stream().toArray(Integer[]::new);
                 Stream<Integer> intStream = Arrays.stream(integersArray);
-        
+                
                 int[] intArray = intList.stream()          // Convert List to Stream
                                         .mapToInt(Integer::intValue) // Convert Integer to int
                                         .toArray();  
         
-        
+                List<List<String>> result = new ArrayList<>();
         
             }
         
@@ -93,13 +98,36 @@ public class Practice{
         Float hFloat = fFloat * gFloat;
         System.out.println( String.format("%.3f", hFloat));
 
-        int items = 345;
-        int itemsPerBag = 58;
-        int bags = (int) Math.ceil((double)items/itemsPerBag);
+        Integer items = 345;
+        Integer itemsPerBag = 58;
+        Integer bags = (int) Math.ceil((double)items/itemsPerBag);
         System.out.println(bags);
         Double gt = 4.432D;
         Float ft = Float.valueOf((float) gt.doubleValue()) ;
         System.out.println(ft);
+        
+        Deque<String> pathDeque = new ArrayDeque<>();
+        
+        
+        int[] preorder = new int[9];
+        int[] inorder = new int[9];
+        List<Integer> visited = new ArrayList<>();
+        int i=0;
+        int j=0;
+        
+        while(i<preorder.length){
+            while(j<preorder.length && preorder[i]!=inorder[j]){
+                visited.add(inorder[i]);
+                
+                j++;
+            }
+            j++;
+            while(visited.contains(preorder[i]))
+                i++;
+            
+
+
+        }
 
     }
 
