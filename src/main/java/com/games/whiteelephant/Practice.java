@@ -6,9 +6,11 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
@@ -24,8 +26,8 @@ import io.grpc.netty.shaded.io.netty.handler.codec.DateFormatter;
 public class Practice{
     public static void main(String[] args) {
         System.out.println("Hello");
-        doMath();
-            }
+        int max = lengthOfLongestSubstringTwoDistinct("ccaabbb");
+;    }
         
             public void streamsFromArrays(){
                 int[] array = new int[]{1,2,3,4,5,6,7,8,9,10};
@@ -66,7 +68,7 @@ public class Practice{
                                         .mapToInt(Integer::intValue) // Convert Integer to int
                                         .toArray();  
         
-                List<List<String>> result = new ArrayList<>();
+                //List<List<String>> result = new ArrayList<>();
         
             }
         
@@ -129,6 +131,43 @@ public class Practice{
 
         }
 
+    }
+
+    public static int lengthOfLongestSubstringTwoDistinct(String s) {
+        Map<Character,Integer> index = new HashMap<>();
+
+        int max = 1;
+        int currentLength = 1;
+        index.put(s.charAt(0),0);
+        for(int i=1;i<s.length();i++){
+            Character c = s.charAt(i);
+            if(index.size()!=2){
+                if(!index.containsKey(c) || (index.containsKey(c) && index.get(c)!=i-1))
+                    index.put(c,i);
+                currentLength++;
+            }else{
+                Map.Entry<Character, Integer> entryMax = index.entrySet().stream()
+                .max((a,b)->a.getValue()-b.getValue()).orElse(null);
+                Map.Entry<Character, Integer> entryMin = index.entrySet().stream()
+                .min((a,b)->a.getValue()-b.getValue()).orElse(null);
+
+                if(index.containsKey(c)){
+                    if(index.get(c)==entryMin.getValue())
+                        index.put(c,i);
+                    currentLength++;
+                }else{
+                    
+                    index.remove(entryMin.getKey());
+                    index.put(c,i);
+                    currentLength = i - entryMax.getValue() + 1;
+
+                }
+
+            }
+            max = Math.max(max,currentLength);    
+        }
+
+        return max;
     }
 
 
