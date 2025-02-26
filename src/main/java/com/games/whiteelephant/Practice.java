@@ -170,5 +170,26 @@ public class Practice{
         return max;
     }
 
+    public int flipgame(int[] fronts, int[] backs) {
+        boolean[] ignoreList = new boolean[2000];
+        int min = 2001;
+
+        //getting the list of numbers to be ignored
+        for(int i=0;i<fronts.length;i++)
+            if(fronts[i]==backs[i])
+                ignoreList[fronts[i]-1] = true;
+
+        //
+        for(int i=0;i<fronts.length;i++){
+            if(!ignoreList[fronts[i]-1])
+                min = Math.min(min,fronts[i]);
+            if(!ignoreList[backs[i]-1])
+                min = Math.min(min,backs[i]);
+
+        }
+      
+        return min==2001?0:min;
+    }
+
 
 }
