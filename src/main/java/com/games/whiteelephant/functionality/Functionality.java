@@ -1,5 +1,6 @@
 package com.games.whiteelephant.functionality;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,6 +62,28 @@ public class Functionality {
         }
       
         return min==2001?0:min;
+        
+    }
+
+    //LeetCode 115
+    private int distinctSubsequences(String s, String t,int i,int j, Integer[][] dp){
+        //count when there is no more characters to match in t
+        if (t.length() == j)
+            return 1;
+        if(s.length()==i)
+            return 0;
+
+        if(dp[i][j] != null)    return dp[i][j];
+
+        int countSkip = distinctSubsequences( s,  t, i+1, j, dp);            
+        int countMatch = 0;
+        if(s.charAt(i)==t.charAt(j)){
+            countMatch = distinctSubsequences( s,  t, i+1, j+1, dp);  
+            
+        }
+
+        return dp[i][j] = countMatch + countSkip;
+
     }
 
 }
