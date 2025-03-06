@@ -6,13 +6,25 @@ import java.util.Map;
 
 public class Functionality {
     
-    public class ListNode {
+    private class ListNode {
              int val;
              ListNode next;
              ListNode() {}
              ListNode(int val) { this.val = val; }
              ListNode(int val, ListNode next) { this.val = val; this.next = next; }
          }
+
+    private class Node {
+            int val;
+            Node next;
+            Node random;
+        
+            public Node(int val) {
+                this.val = val;
+                this.next = null;
+                this.random = null;
+            }
+        }
 
     public static int lengthOfLongestSubstringTwoDistinct(String s) {
         Map<Character,Integer> index = new HashMap<>();
@@ -197,6 +209,49 @@ public class Functionality {
         node.next = node.next.next;
         
         return head;
+    }
+
+    //Letcode 12
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode head = new ListNode();
+        ListNode node = head;
+        while(list1!=null || list2!=null){
+            if(list1==null || (list2!=null && list2.val<=list1.val)){
+                node.next = new ListNode(list2.val);
+                list2 = list2.next;
+            }else
+            if(list2==null || (list1!=null && list1.val<=list2.val)){
+                node.next = new ListNode(list1.val);
+                list1 = list1.next;
+            }
+            node = node.next;
+        }
+        return head.next;
+        
+    }
+
+    //Leetcode 138
+    public Node copyRandomList(Node head) {
+        if (head==null) return null;
+        Map<Node,Node> nodesMap = new HashMap<>();
+        Node node = head;
+
+        while(node!=null){
+            nodesMap.put(node,new Node(node.val));
+            node = node.next;
+        }
+        node = head;
+
+        while(node!=null){
+            Node current = nodesMap.get(node);
+            current.next = nodesMap.get(node.next);
+            current.random = nodesMap.get(node.random);
+            node = node.next;
+        }
+
+        return nodesMap.get(head);
+
+        
     }
 
 }
