@@ -6,6 +6,14 @@ import java.util.Map;
 
 public class Functionality {
     
+    public class ListNode {
+             int val;
+             ListNode next;
+             ListNode() {}
+             ListNode(int val) { this.val = val; }
+             ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+         }
+
     public static int lengthOfLongestSubstringTwoDistinct(String s) {
         Map<Character,Integer> index = new HashMap<>();
 
@@ -102,6 +110,7 @@ public class Functionality {
         return Math.min(dp[numHouses-1][0], Math.min(dp[numHouses-1][1], dp[numHouses-1][2]));
     }
 
+    //Leetcode 10
     public boolean isMatch(String s, String p) {
         boolean[][] dp = new boolean[s.length() + 1][ p.length() + 1];
         dp[0][0] = true;
@@ -137,6 +146,34 @@ public class Functionality {
 
         return dp[s.length() ][ p.length() ];
 
+        
+    }
+
+    //Leetcode 2
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int digit = 0;
+        int remainder = 0;
+        ListNode result = new ListNode();
+        ListNode node = new ListNode();
+        result = node;
+        while(l1 != null || l2 != null){
+            int num1 = l1!=null?l1.val:0;
+            int num2 = l2!=null?l2.val:0;
+            int sum = num1 + num2 + remainder;
+            digit = sum % 10;
+            remainder = sum / 10;
+            ListNode current = new ListNode(digit);
+            node.next = current;
+            node = current;
+            l1 = l1!=null?l1.next:l1;
+            l2 = l2!=null?l2.next:l2;
+
+        }
+
+        if(remainder>0)
+            node.next = new ListNode(remainder);
+        
+        return result.next;
         
     }
 
