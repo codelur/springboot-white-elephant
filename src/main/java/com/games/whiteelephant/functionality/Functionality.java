@@ -177,4 +177,26 @@ public class Functionality {
         
     }
 
+    //Leetcode 19
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        int size = 0;
+        ListNode node = head;
+        while(node!=null){
+            size++;
+            node = node.next;
+        }
+        if(size == 1 && n ==1) return null;
+        if(size == n) return head.next;
+        int posFromStart = size - n;
+        node = head;
+        int count = 1;
+        while(count<posFromStart){
+            node = node.next;
+            count++;
+        }
+        node.next = node.next.next;
+        
+        return head;
+    }
+
 }
