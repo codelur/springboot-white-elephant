@@ -1,6 +1,8 @@
 package com.games.whiteelephant.functionality;
 
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -252,6 +254,46 @@ public class Functionality {
         return nodesMap.get(head);
 
         
+    }
+
+    //LeetCode 252
+    public boolean canAttendMeetings(int[][] intervals) {
+        if(intervals.length ==0) return true;
+        Arrays.sort(intervals, new Comparator<int[]> (){
+            public int compare(int[] a,int[] b){return a[0]-b[0];}
+        });
+        return false;
+
+    }
+
+    //LeetCode 252
+    public boolean canAttendMeetings(int[][] intervals) {
+        if(intervals.length ==0) return true;
+        Arrays.sort(intervals, new Comparator<int[]> (){
+            public int compare(int[] a,int[] b){return a[0]-b[0];}
+        });
+        return false;
+
+    }
+
+    //LeetCode 252
+    public boolean canAttendMeetings(int[][] intervals) {
+        if(intervals.length ==0) return true;
+        Arrays.sort(intervals, new Comparator<int[]> (){
+            public int compare(int[] a,int[] b){return a[0]-b[0];}
+        });
+        return false;
+
+    }
+
+    //LeetCode 252
+    public boolean canAttendMeetings(int[][] intervals) {
+        if(intervals.length ==0) return true;
+        Arrays.sort(intervals, new Comparator<int[]> (){
+            public int compare(int[] a,int[] b){return a[0]-b[0];}
+        });
+        return false;
+
     }
 
 }
