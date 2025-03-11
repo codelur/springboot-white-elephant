@@ -266,34 +266,6 @@ public class Functionality {
 
     }
 
-    //LeetCode 252
-    public boolean canAttendMeetings(int[][] intervals) {
-        if(intervals.length ==0) return true;
-        Arrays.sort(intervals, new Comparator<int[]> (){
-            public int compare(int[] a,int[] b){return a[0]-b[0];}
-        });
-        return false;
 
-    }
-
-    //LeetCode 252
-    public boolean canAttendMeetings(int[][] intervals) {
-        if(intervals.length ==0) return true;
-        Arrays.sort(intervals, new Comparator<int[]> (){
-            public int compare(int[] a,int[] b){return a[0]-b[0];}
-        });
-        return false;
-
-    }
-
-    //LeetCode 252
-    public boolean canAttendMeetings(int[][] intervals) {
-        if(intervals.length ==0) return true;
-        Arrays.sort(intervals, new Comparator<int[]> (){
-            public int compare(int[] a,int[] b){return a[0]-b[0];}
-        });
-        return false;
-
-    }
 
 }
